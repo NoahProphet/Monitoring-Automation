@@ -1,0 +1,35 @@
+version: '3.7'
+
+services:
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus-NAME
+    user: root
+    volumes:
+      - ./config/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./config/prometheus/ssl:/etc/prometheus/ssl
+      - ./prometheus_data/:/prometheus/
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
+    ports:
+      - PROMETHEUS-PORT:9090
+#      - pushgateway:pushgateway
+    networks:
+      - prometheus-net-NAME
+    environment:
+      - TZ=Asia/Tehran
+    restart: always
+
+
+networks:
+  prometheus-net-NAME:
+    # Use a custom driver
+    name: prometheus-net-NAME
+
+
+
+    
