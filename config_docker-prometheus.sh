@@ -60,9 +60,10 @@ cp default_conf/prometheus/docker-compose-prometheus.yml $NAME/docker-compose-pr
 echo "+ copy default config";
 
 mkdir -p nginx
+tar -zcvf ssl.tar.gz ssl
 if [ -z "$(ls -A nginx)" ]; then
     cp -r default_conf/nginx/* nginx/
-    cp -r ssl nginx/data
+    cp -r ssl.tar.gz nginx/data
     wget https://github.com/prometheus/node_exporter/releases/download/v1.3.1/node_exporter-1.3.1.linux-amd64.tar.gz -o nginx/data/node_exporter-1.3.1.linux-amd64.tar.gz
 else 
     echo "nginx files exist"
