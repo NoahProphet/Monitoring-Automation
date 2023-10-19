@@ -19,7 +19,7 @@ set -e
 
 
 #Set Password for node-exporter
-PASSWORD_OF_SERVER="Change itt"
+PASSWORD_OF_SERVER="Change it"
 SERVER_IP="Change it"
 SERVER_USER="Change it"
 USER="Change it"
@@ -90,7 +90,7 @@ fi
 
 
 
-wget http://$USER:$PASSWD@$SERVER_IP:80/data/ssl/* ssl/
+wget http://$USER:$PASSWD@$SERVER_IP:80/data/ssl.tar.gz -o ssl.tar.gz
 #sshpass -p "$PASSWORD_OF_SERVER" scp -r ssl/prom_node_cert.pem monitoring@$SERVER_IP:/home/monitoring/prometheus/prometheus/ssl/prom_node_cert.pem
 echo "copy ssl file."
 
