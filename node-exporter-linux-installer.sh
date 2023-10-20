@@ -91,6 +91,7 @@ fi
 
 
 wget http://$USER:$PASSWD@$SERVER_IP:80/data/ssl.tar.gz -o ssl.tar.gz
+tar -xcvf ssl.tar.gz
 #sshpass -p "$PASSWORD_OF_SERVER" scp -r ssl/prom_node_cert.pem monitoring@$SERVER_IP:/home/monitoring/prometheus/prometheus/ssl/prom_node_cert.pem
 echo "copy ssl file."
 
@@ -103,7 +104,9 @@ FILE_EXPORTER=node_exporter
 if [ -f "$FILE_EXPORTER" ]; then
     sudo cp node_exporter /usr/local/bin
 else
-    wget http://$USER:$PASSWD@$SERVER_IP:80/data/node_exporter-1.3.1.linux-amd64 -o node_exporter
+    wget http://$USER:$PASSWD@$SERVER_IP:80/data/node_exporter-1.3.1.linux-amd64.tar.gz 
+    tar -xcvf node_exporter-1.3.1.linux-amd64.tar.gz
+    mv node_exporter-1.3.1.linux-amd64 node_exporter
 fi
 
 sudo cp node_exporter /usr/local/bin
