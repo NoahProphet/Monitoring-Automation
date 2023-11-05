@@ -47,12 +47,12 @@ scrape_configs:
     static_configs:
     - targets: ['192.168.8.3:9100']
 
-
+#Cortex configuration
 remote_write:
   - url: https://monitoring.sanayco.ir/test_Sanay
     basic_auth:
-     username: "test"
-     password: "SY1qaz#1qaz#$"
+     username: "ENTER YOUR USERNAME"
+     password: "ENTER YOURPASSWORD"
     tls_config:
         insecure_skip_verify: false
 
