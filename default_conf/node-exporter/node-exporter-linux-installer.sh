@@ -91,7 +91,7 @@ FILE=ssl
 if [ -f "$FILE" ]; then
   echo "ssl exist"
 else 
-  wget http://$USER:$PASSWD@$SERVER_IP:80/data/ssl.tar.gz
+  wget http://$USER:$PASSWD@$SERVER_IP:8031/data/ssl.tar.gz
   tar -xzf ssl.tar.gz
   #sshpass -p "$PASSWORD_OF_SERVER" scp -r ssl/prom_node_cert.pem monitoring@$SERVER_IP:/home/monitoring/prometheus/prometheus/ssl/prom_node_cert.pem
   echo "copy ssl file."
@@ -102,11 +102,13 @@ if [ -f "$FILE_EXPORTER_SERVICE" ]; then
   sudo systemctl stop node-exporter.service
 fi
 
+#node exporter URL scheme: node_exporter-$VERSION.linux-amd64.tar.gz
+
 FILE_EXPORTER=node_exporter
 if [ -f "$FILE_EXPORTER" ]; then
     sudo cp node_exporter /usr/local/bin
 else
-    wget http://$USER:$PASSWD@$SERVER_IP:80/data/node_exporter-$VERSION.linux-amd64.tar.gz 
+    wget http://$USER:$PASSWD@$SERVER_IP:8031/data/node_exporter-$VERSION.linux-amd64.tar.gz 
     tar -xzf node_exporter-$VERSION.linux-amd64.tar.gz
     mv node_exporter-$VERSION.linux-amd64/node_exporter .
     sudo cp node_exporter /usr/local/bin
