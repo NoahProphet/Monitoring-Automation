@@ -64,7 +64,8 @@ tar -zcvf ssl.tar.gz ssl
 if [ -z "$(ls -A nginx)" ]; then
     cp -r default_conf/nginx/* nginx/
     cp -r ssl.tar.gz nginx/data
-    wget https://github.com/prometheus/node_exporter/releases/download/v1.3.1/node_exporter-1.6.1.linux-amd64.tar.gz -o nginx/data/node_exporter-1.6.1.linux-amd64.tar.gz
+    wget https://github.com/prometheus/node_exporter/releases/download/v1.3.1/node_exporter-1.6.1.linux-amd64.tar.gz 
+    cp node_exporter-1.6.1.linux-amd64.tar.gz ./nginx/data
 else
     echo "nginx files exist"
 fi
