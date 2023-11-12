@@ -20,11 +20,11 @@ set -e
 
 #Set Password for node-exporter
 PASSWORD_OF_SERVER="Change it"
-SERVER_IP="Change it"
+SERVER_IP="95.217.159.149"
 SERVER_USER="Change it"
-USER="Change it"
-PASSWD="Change it"
-VERSION="Change it"
+USER="noah"
+PASSWD="test"
+VERSION="1.6.1"
 
 #check root
 _check_root () {
@@ -98,7 +98,7 @@ else
 fi
 
 FILE_EXPORTER_SERVICE=/lib/systemd/system/node-exporter.service
-if [ -f "$FILE_EXPORTER_SERVICE" ]; then    
+if [ -f "$FILE_EXPORTER_SERVICE" ]; then
   sudo systemctl stop node-exporter.service
 fi
 
