@@ -20,7 +20,7 @@ set -e
 
 #Set Password for node-exporter
 PASSWORD_OF_SERVER="Change it"
-SERVER_IP="95.217.159.149"
+SERVER_IP="Change it"
 SERVER_USER="Change it"
 USER="noah"
 PASSWD="test"
